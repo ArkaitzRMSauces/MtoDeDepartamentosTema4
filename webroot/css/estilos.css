@@ -6,6 +6,10 @@
 main{
     min-height: calc(100vh - 38px);
 }
+nav{
+    width: 100%;
+    text-align: center;
+}
 .form{
     margin-top: 50px;
     font-weight: bold;
@@ -46,4 +50,12 @@ footer{
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+button{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+button a{
+    text-decoration: none;
 }

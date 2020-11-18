@@ -1,3 +1,28 @@
+<?php
+    define('PATH','codigoPHP/');
+    define('PATHPROYECTOS','../');
+    if(isset($_POST['insertar'])){
+        header('Location: '.PATH.'altaDepartamento.php');
+        exit;
+    }
+    if(isset($_POST['importar'])){
+        header('Location: '.PATH.'importarDepartamentos.php');
+        exit;
+    }
+    if(isset($_POST['exportar'])){
+        header('Location: '.PATH.'exportarDepartamentos.php');
+        exit;
+    }
+    if(isset($_POST['mostrarCodigo'])){
+        header('Location: '.PATH.'mostrarCodigo.php');
+        exit;
+    }
+    
+    if(isset($_POST['volver'])){
+        header('Location: '.PATHPROYECTOS.'proyectoDWES/indexProyectoDWES.php');
+        exit;
+    }
+?>
 <html>
     <head>
         <title>MtoDeDepartamentosTema4 - Arkaitz Rodriguez Martinez</title>
@@ -6,10 +31,14 @@
     <body>
         <main>
             <header class="cabecera">MtoDeDepartamentos - Tema 4 - Arkaitz Rodriguez Martinez</header>
-            <nav>
-                
-            </nav>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form">
+                <nav>
+                    <input type="submit" name="insertar" value="Añadir" class="input">
+                    <input type="submit" name="importar" value="Importar" class="input">
+                    <input type="submit" name="exportar" value="Exportar" class="input">
+                    <input type="submit" name="volver" value="Volver" class="input">
+                </nav>
+                <br>
                 <div>
                     <label>Descripcion del Departamento</label>
                     <input type = "text" name = "descDepartamento"
@@ -26,7 +55,7 @@
 
                 try {   
                     $miDB = new PDO(DNS, USER, PASSWORD);//Creamos el objeto PDO, con la conexion
-                    $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+                    $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     if (isset($_POST['buscar'])) {//Al buscar "nada" Mostrara toda la tabla
 
                         //OBLIGATORIOS
@@ -51,6 +80,7 @@
                                 echo "<td>$objetoDepartamento->DescDepartamento</td>";
                                 echo "<td>$objetoDepartamento->FechaBaja</td>";
                                 echo "<td class='volumen'>$objetoDepartamento->VolumenNegocio</td>";
+                                echo "<td>&#270F</td>";
                                 echo "</tr>";
                                 $objetoDepartamento = $consultaSelect->fetchObject();//Avanzamos puntero dentro del bucle
                             }
@@ -66,6 +96,7 @@
                     unset($miDB);
                 }
             ?>
+            <input type="submit" name="mostrarCodigo" value="Mostrar Codigo" class="input">
         </main>
         <footer>
             <div>
