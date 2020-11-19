@@ -1,6 +1,10 @@
 <?php
     require_once '../config/confDBPDO.php';//Importamos archivo de configuracion de la conexion de BD
     require_once '../core/201020libreriaValidacion.php';//Importamos archivo de validacion de formularios
+    if(isset($_POST['volver'])){
+        header('Location: ../mtoDepartamentos.php');
+        exit;
+    }
     $entradaOK = true;
             
     $arrayErrores = [ //Recoge los errores del formulario
@@ -118,6 +122,7 @@
                     <br>
                     <div>
                         <input type="submit" name="enviar" value="Añadir Departamento">
+                        <input type="submit" name="volver" value="Volver">
                     </div>
                 </fieldset>
             </form>

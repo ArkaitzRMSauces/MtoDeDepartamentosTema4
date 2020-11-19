@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+header{
+    font-weight: bold;
+}
 main{
     min-height: calc(100vh - 38px);
 }
@@ -41,6 +44,9 @@ table tr th,td{
     border: solid 3px red;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+a{
+    text-decoration: none; 
 }
 footer{
     width: 100%;
