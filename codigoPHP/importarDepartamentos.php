@@ -3,10 +3,6 @@
         $entradaOK = true;
         $archivo = null;
         $error = null;
-        if(isset($_POST['volver'])){
-            header('Location: ../mtoDepartamentos.php');
-            exit;
-        }   
         if (isset($_POST["importar"])) {
             if (!empty($_FILES["archivo"]["name"])) {
                 $archivo = $_FILES['archivo']['tmp_name'];
@@ -47,11 +43,11 @@
                 }
                 $miDB->commit();
                 echo "<p> Todos los datos han sido importados</p>";
-                echo "<input type='submit' name='volver' value='Volver'>";
+                echo "<a href='../mtoDepartamentos.php'><input type='submit' name='volver' value='Volver'></a>";
             } catch (Exception $e) {
                 echo "Error " . $e->getCode() . ", " . $e->getMessage() . ".";
                 $miDB->rollBack();
-                echo "<input type='submit' name='volver' value='Volver'>";
+                echo "<a href='../mtoDepartamentos.php'><input type='submit' name='volver' value='Volver'></a>";
             } finally {
                 unset($miDB);
             }
@@ -66,6 +62,6 @@
                 ?>
                 <br>
                 <input type="submit" name="importar" value="Importar">
-                <input type="submit" name="volver" value="Volver">
+                <a href="../mtoDepartamentos.php"><input type="submit" name="volver" value="Volver"></a>
             </form>
         <?php } ?>

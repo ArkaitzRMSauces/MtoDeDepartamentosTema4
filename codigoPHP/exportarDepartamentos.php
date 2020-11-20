@@ -25,12 +25,7 @@
             $volumenNegocio = $departamento->appendChild($volumenNegocio);
         } 
         $documentoXML->formatOutput = true;
-        $documentoXML->saveXML();
-        $documentoXML->save("../tmp/departamento.xml");
-        echo "<br>";
-        highlight_file("../tmp/departamento.xml");
-
-        echo "<h3>Exportacion realizada</h3>";
+        $documentoXML->save('../tmp/departamento.xml');
     } catch (PDOException $mensajeError) {
         echo "Error: " . $mensajeError->getMessage() . "<br>";
         echo "Código de error: " . $mensajeError->getCode();

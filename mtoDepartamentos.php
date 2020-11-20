@@ -10,7 +10,7 @@
         exit;
     }
     if(isset($_POST['exportar'])){
-        header('Location: '.PATH.'descarga.php');
+        header('Location: '.PATH.'exportarDepartamentos.php');
         exit;
     }
     if(isset($_POST['mostrarCodigo'])){
