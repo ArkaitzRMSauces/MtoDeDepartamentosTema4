@@ -20,7 +20,7 @@
     if (isset($_POST['enviar'])) { //Código que se ejecuta cuando se envía el formulario
         $arrayErrores['codDepartamento'] = validacionFormularios::comprobarAlfabetico($_POST['codDepartamento'], 3, 3, 1);  //Máximo, mínimo y opcionalidad
         $arrayErrores['descDepartamento'] = validacionFormularios::comprobarAlfabetico($_POST['descDepartamento'], 255, 1, 1);  //Máximo, mínimo y opcionalidad
-        $arraErrores['volumenNegocio'] = validacionFormularios::comprobarFloat($_POST['volumenNegocio'], 255, 0, PHP_FLOAT_MAX, 1);  //maximo, mínimo y opcionalidad
+        $arraErrores['volumenNegocio'] = validacionFormularios::comprobarFloat($_POST['volumenNegocio'], PHP_FLOAT_MAX, 1, 1);  //maximo, mínimo y opcionalidad
                 
         foreach ($arrayErrores as $campo => $error) { //Recorre el array en busca de mensajes de error
             if ($error != null) { //Si lo encuentra vacia el campo y cambia la condiccion
